@@ -1,3 +1,5 @@
+![Cubic Bezier Input](www/public/og.png)
+
 # Cubic Bezier Input
 
 Easy to style and highly composable cubic bezier input.
@@ -25,7 +27,7 @@ Import all parts and piece them together.
   </CubicBezier.Controller>
   <CubicBezier.Curve>
     <CubicBezier.End />
-  </CubicBezier.Curve />
+  </CubicBezier.Curve>
 </CubicBezier.Root>
 ```
 
@@ -43,15 +45,15 @@ Import all parts and piece them together.
 
 ### Controller
 
-| Prop    | Type     | Default | Description                     |
-| ------- | -------- | ------- | ------------------------------- |
-| `index` | `1 or 2` | -       | The index of the control point. |
+| Prop    | Type     | Default | Description                   |
+| ------- | -------- | ------- | ----------------------------- |
+| `index` | `1 or 2` | -       | The index of the controllers. |
 
 ### Thumb
 
-| Prop | Type     | Default | Description                      |
-| ---- | -------- | ------- | -------------------------------- |
-| `r`  | `number` | -       | The radius of the control point. |
+| Prop | Type     | Default | Description                       |
+| ---- | -------- | ------- | --------------------------------- |
+| `r`  | `number` | `5`     | The radius of the control thumbs. |
 
 ### End
 
@@ -61,4 +63,5 @@ Import all parts and piece them together.
 
 ## Example Usage
 
-- Live Demo: [cubic-bezier-input.vercel.app](https://cubic-bezier-input.vercel.app/)
+- Live Demo: [cubic-bezier-input.vercel.app]
+- Example Usage: [https://github.com/501A-gh/cubic-bezier-input/blob/main/www/app/Editor.tsx]

@@ -328,7 +328,10 @@ export function CubicBezierController({
 
 type ControllerThumbProps = Omit<React.SVGProps<SVGCircleElement>, "cx" | "cy">;
 
-export function CubicBezierControllerThumb({ ...props }: ControllerThumbProps) {
+export function CubicBezierControllerThumb({
+  r = 5,
+  ...props
+}: ControllerThumbProps) {
   const { cx, cy, handlePointerDown, handlePointerMove, handlePointerUp } =
     useControlPointContext();
 
@@ -336,12 +339,12 @@ export function CubicBezierControllerThumb({ ...props }: ControllerThumbProps) {
     <circle
       cx={isNaN(cx) ? 0 : cx}
       cy={isNaN(cy) ? 0 : cy}
-      r="5"
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       style={{ touchAction: "none" }}
+      r={r}
       {...props}
     />
   );
