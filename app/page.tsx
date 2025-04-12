@@ -1,4 +1,24 @@
+import { Metadata } from "next";
 import { Editor } from "./Editor";
+
+export const metadata: Metadata = {
+  title: "Cubic Bezier Input",
+  description: "A shadcn/ui style copy paste-able cubic bezier input.",
+  openGraph: {
+    title: "Cubic Bezier Input",
+    description: "A shadcn/ui style copy paste-able cubic bezier input.",
+    url: "https://cubic-bezier-input.vercel.app/",
+    siteName: "Cubic Bezier Input",
+    images: [
+      {
+        url: "https://cubic-bezier-input.vercel.app/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Cubic Bezier Input",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
