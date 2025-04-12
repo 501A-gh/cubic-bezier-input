@@ -28,7 +28,7 @@ export default function Home() {
           <h1 className="text-lg font-semibold -tracking-wide">
             Cubic Bezier Input
           </h1>
-          <p className="text-xs underline underline-offset-2 decoration-zinc-300 dark:decoration-zinc-700">
+          <p className="text-sm underline underline-offset-2 decoration-zinc-300 dark:decoration-zinc-700 transition-transform active:scale-95">
             View{" "}
             <a href="https://github.com/501A-gh/cubic-bezier-input">
               Documentation
