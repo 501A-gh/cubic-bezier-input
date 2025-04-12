@@ -1,10 +1,8 @@
 "use client";
-
-import { cn } from "@/util";
 import * as React from "react";
 
 // Types for the component props
-type CubicBezierProps = {
+export type CubicBezierProps = {
   value?: [number, number, number, number];
   defaultValue?: [number, number, number, number];
   onValueChange?: (value: [number, number, number, number]) => void;
@@ -14,17 +12,12 @@ type CubicBezierProps = {
   children?: React.ReactNode;
 };
 
-// Context to share state between components
-type CubicBezierContextType = {
+const CubicBezierContext = React.createContext<{
   value: [number, number, number, number];
   updatePoint: (index: 1 | 2, x: number, y: number) => void;
   commitPoint: (index: 1 | 2, x: number, y: number) => void;
   viewBoxPadding: number;
-};
-
-const CubicBezierContext = React.createContext<CubicBezierContextType | null>(
-  null,
-);
+} | null>(null);
 
 export const useCubicBezierContext = () => {
   const context = React.useContext(CubicBezierContext);
@@ -37,7 +30,7 @@ export const useCubicBezierContext = () => {
 };
 
 // Control point context for sharing state between control point components
-type ControlPointContextType = {
+const ControlPointContext = React.createContext<{
   index: 1 | 2;
   x: number;
   y: number;
@@ -46,11 +39,7 @@ type ControlPointContextType = {
   handlePointerDown: (e: React.PointerEvent<SVGElement>) => void;
   handlePointerMove: (e: React.PointerEvent<SVGElement>) => void;
   handlePointerUp: (e: React.PointerEvent<SVGElement>) => void;
-};
-
-const ControlPointContext = React.createContext<ControlPointContextType | null>(
-  null,
-);
+} | null>(null);
 
 export const useControlPointContext = () => {
   const context = React.useContext(ControlPointContext);
@@ -141,13 +130,7 @@ export function CubicBezier({
     <CubicBezierContext.Provider
       value={{ value, updatePoint, commitPoint, viewBoxPadding }}
     >
-      <div
-        className={cn(
-          "relative bg-background border border-border rounded-md",
-          className,
-        )}
-        {...props}
-      >
+      <div className={className} {...props}>
         {/* Use a viewBox with adjustable padding */}
         <svg
           width="100%"
@@ -162,12 +145,9 @@ export function CubicBezier({
   );
 }
 
-export function CubicBezierGrid({
-  className,
-  ...props
-}: React.SVGProps<SVGGElement>) {
+export function CubicBezierGrid({ ...props }: React.SVGProps<SVGGElement>) {
   return (
-    <g className={cn("stroke-muted-foreground/20", className)} {...props}>
+    <g {...props}>
       <rect x="0" y="0" width="100" height="100" />
       <line x1="0" y1="0" x2="100" y2="0" />
       <line x1="0" y1="25" x2="100" y2="25" />
@@ -184,10 +164,7 @@ export function CubicBezierGrid({
   );
 }
 
-export function CubicBezierCurve({
-  className,
-  ...props
-}: React.SVGProps<SVGPathElement>) {
+export function CubicBezierCurve({ ...props }: React.SVGProps<SVGPathElement>) {
   const { value } = useCubicBezierContext();
   const [p1x, p1y, p2x, p2y] = value;
 
@@ -196,22 +173,19 @@ export function CubicBezierCurve({
   },${isNaN(p2y) ? 0 : 100 - p2y * 100} 100,0`;
 
   return (
-    <path
-      d={path}
-      fill="none"
-      className={cn("stroke-primary", className)}
-      {...props}
-    />
+    <g>
+      <path d={path} fill="none" {...props} />
+      {props.children}
+    </g>
   );
 }
 
 export function CubicBezierCurveEnd({
   r = 2,
-  className,
   ...props
 }: React.SVGProps<SVGGElement>) {
   return (
-    <g className={cn("stroke-muted-foreground/20", className)} {...props}>
+    <g {...props}>
       <circle cx="100" cy="0" r={r} />
       <circle cx="0" cy="100" r={r} />
     </g>
@@ -352,14 +326,9 @@ export function CubicBezierController({
   );
 }
 
-type ControllerThumbProps = {
-  className?: string;
-} & Omit<React.SVGProps<SVGCircleElement>, "cx" | "cy">;
+type ControllerThumbProps = Omit<React.SVGProps<SVGCircleElement>, "cx" | "cy">;
 
-export function CubicBezierControllerThumb({
-  className,
-  ...props
-}: ControllerThumbProps) {
+export function CubicBezierControllerThumb({ ...props }: ControllerThumbProps) {
   const { cx, cy, handlePointerDown, handlePointerMove, handlePointerUp } =
     useControlPointContext();
 
@@ -368,7 +337,6 @@ export function CubicBezierControllerThumb({
       cx={isNaN(cx) ? 0 : cx}
       cy={isNaN(cy) ? 0 : cy}
       r="5"
-      className={cn("fill-primary cursor-move", className)}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
