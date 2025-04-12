@@ -63,5 +63,5 @@ Import all parts and piece them together.
 
 ## Example Usage
 
-- Live Demo: [cubic-bezier-input.vercel.app]
-- Example Usage: [https://github.com/501A-gh/cubic-bezier-input/blob/main/www/app/Editor.tsx]
+- [Live Demo](cubic-bezier-input.vercel.app)
+- [Example Usage](https://github.com/501A-gh/cubic-bezier-input/blob/main/www/app/Editor.tsx)
