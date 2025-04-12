@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "cubic-bezier-input": "^0.0.1",
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
