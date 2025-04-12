@@ -4,7 +4,9 @@ A shadcn/ui style copy paste-able cubic bezier input.
 
 ## Installation
 
-Copy and paste the contents of [this file](https://github.com/501A-gh/cubic-bezier-input/blob/main/app/components/CubicBezier.tsx) into your project.
+```
+npm install cubic-bezier-input
+```
 
 ## Anatomy
 
