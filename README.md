@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cubic Bezier Input
 
-## Getting Started
+A shadcn/ui style copy paste-able cubic bezier input.
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Copy and paste
+
+## Anatomy
+
+Import all parts and piece them together.
+
+```ts
+<CubicBezier>
+  // Bezier Grid
+  <CubicBezierGrid/>
+
+  // Bottom Left Control Point
+  <CubicBezierController index={1}>
+    <CubicBezierControllerLine/>
+    <CubicBezierControllerThumb/>
+  </CubicBezierController>
+
+  // Top Left Control Point
+  <CubicBezierController index={2}>
+    <CubicBezierControllerLine/>
+    <CubicBezierControllerThumb/>
+  </CubicBezierController>
+
+  // Bezier Curve
+  <CubicBezierCurve/>
+  <CubicBezierCurveEnd/>
+</CubicBezier>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### CubicBezier (Root)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Prop            | Type                                             | Default | Description                               |
+| --------------- | ------------------------------------------------ | ------- | ----------------------------------------- |
+| `value`         | `[number,number,number,number]`                  | -       | The value of the cubic bezier.            |
+| `onValueChange` | `(value: [number,number,number,number]) => void` | -       | The callback when the value changes.      |
+| `onValueCommit` | `(value: [number,number,number,number]) => void` | -       | The callback when the value is committed. |
 
-## Learn More
+### CubicBezierController
 
-To learn more about Next.js, take a look at the following resources:
+| Prop    | Type     | Default | Description                     |
+| ------- | -------- | ------- | ------------------------------- |
+| `index` | `1 or 2` | -       | The index of the control point. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### CubicBezierControllerThumb
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Prop | Type     | Default | Description                      |
+| ---- | -------- | ------- | -------------------------------- |
+| `r`  | `number` | -       | The radius of the control point. |
 
-## Deploy on Vercel
+### CubicBezierCurveEnd
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Prop | Type     | Default | Description                   |
+| ---- | -------- | ------- | ----------------------------- |
+| `r`  | `number` | -       | The radius of the end points. |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Example Usage
+
+- Live Demo: [cubic-bezier-input.vercel.app](https://cubic-bezier-input.vercel.app/)
