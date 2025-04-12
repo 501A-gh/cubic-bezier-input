@@ -4,32 +4,29 @@ A shadcn/ui style copy paste-able cubic bezier input.
 
 ## Installation
 
-Copy and paste
+Copy and paste the contents of [this file](https://github.com/501A-gh/cubic-bezier-input/blob/main/app/components/CubicBezier.tsx) into your project.
 
 ## Anatomy
 
 Import all parts and piece them together.
 
-```ts
+```jsx
 <CubicBezier>
   // Bezier Grid
-  <CubicBezierGrid/>
-
+  <CubicBezierGrid />
   // Bottom Left Control Point
   <CubicBezierController index={1}>
-    <CubicBezierControllerLine/>
-    <CubicBezierControllerThumb/>
+    <CubicBezierControllerLine />
+    <CubicBezierControllerThumb />
   </CubicBezierController>
-
   // Top Left Control Point
   <CubicBezierController index={2}>
-    <CubicBezierControllerLine/>
-    <CubicBezierControllerThumb/>
+    <CubicBezierControllerLine />
+    <CubicBezierControllerThumb />
   </CubicBezierController>
-
   // Bezier Curve
-  <CubicBezierCurve/>
-  <CubicBezierCurveEnd/>
+  <CubicBezierCurve />
+  <CubicBezierCurveEnd />
 </CubicBezier>
 ```
 
@@ -37,11 +34,13 @@ Import all parts and piece them together.
 
 ### CubicBezier (Root)
 
-| Prop            | Type                                             | Default | Description                               |
-| --------------- | ------------------------------------------------ | ------- | ----------------------------------------- |
-| `value`         | `[number,number,number,number]`                  | -       | The value of the cubic bezier.            |
-| `onValueChange` | `(value: [number,number,number,number]) => void` | -       | The callback when the value changes.      |
-| `onValueCommit` | `(value: [number,number,number,number]) => void` | -       | The callback when the value is committed. |
+| Prop             | Type                                             | Default              | Description                               |
+| ---------------- | ------------------------------------------------ | -------------------- | ----------------------------------------- |
+| `value`          | `[number,number,number,number]`                  | -                    | The value of the cubic bezier.            |
+| `defaultValue`   | `[number,number,number,number]`                  | [0.25, 0.1, 0.25, 1] | The default value of the cubic bezier.    |
+| `onValueChange`  | `(value: [number,number,number,number]) => void` | -                    | The callback when the value changes.      |
+| `onValueCommit`  | `(value: [number,number,number,number]) => void` | -                    | The callback when the value is committed. |
+| `viewBoxPadding` | `number`                                         | 10                   | The padding of the viewBox.               |
 
 ### CubicBezierController
 
@@ -59,7 +58,7 @@ Import all parts and piece them together.
 
 | Prop | Type     | Default | Description                   |
 | ---- | -------- | ------- | ----------------------------- |
-| `r`  | `number` | -       | The radius of the end points. |
+| `r`  | `number` | 2       | The radius of the end points. |
 
 ## Example Usage
 
