@@ -1,6 +1,6 @@
 {
   "name": "cubic-bezier-input",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cubic Bezier Editor Component",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -9,8 +9,16 @@
     "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "tailwind",
+    "cubic-bezier",
+    "editor"
+  ],
+  "author": "501a",
+  "git": {
+    "url": "https://github.com/501a-gh/cubic-bezier-input"
+  },
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {

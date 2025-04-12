@@ -1,6 +1,6 @@
 # Cubic Bezier Input
 
-A shadcn/ui style copy paste-able cubic bezier input.
+Easy to style and highly composable cubic bezier input.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Import all parts and piece them together.
   </CubicBezier.Controller>
   <CubicBezier.Curve>
     <CubicBezier.End />
-  </CubicBezier.Curve>
+  </CubicBezier.Curve />
 </CubicBezier.Root>
 ```
 
