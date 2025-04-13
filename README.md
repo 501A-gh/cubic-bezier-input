@@ -2,7 +2,9 @@
 
 # Cubic Bezier Input
 
-Easy to style and highly composable cubic bezier input.
+An unstyled and highly composable cubic bezier input.
+
+You can view the live demo [here](https://cubic-bezier-input.vercel.app)
 
 ## Installation
 
@@ -12,7 +14,7 @@ npm install cubic-bezier-input
 
 ## Anatomy
 
-Import all parts and piece them together.
+Like in shadcn/ui or Radix you can import all parts and piece them together.
 
 ```jsx
 <CubicBezier.Root>
@@ -32,6 +34,9 @@ Import all parts and piece them together.
 ```
 
 ## API Usage
+All components come with a `className` prop and are unstyled by default making it easy to style using Tailwind.
+Since the curves and grid are rendered with SVG's, you can customize their appearance using utility classes like `fill-*` and `stroke-*`.
+For a better idea of how to use the component, check out the [example usage](https://github.com/501A-gh/cubic-bezier-input/blob/main/www/app/Editor.tsx).
 
 ### Root
 
@@ -60,8 +65,3 @@ Import all parts and piece them together.
 | Prop | Type     | Default | Description                   |
 | ---- | -------- | ------- | ----------------------------- |
 | `r`  | `number` | `2`     | The radius of the end points. |
-
-## Example Usage
-
-- [Live Demo](https://cubic-bezier-input.vercel.app)
-- [Example Usage](https://github.com/501A-gh/cubic-bezier-input/blob/main/www/app/Editor.tsx)
