@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import CubicBezier from "cubic-bezier-input";
 
@@ -39,7 +38,9 @@ export const Editor = () => {
           <CubicBezier.End className="fill-zinc-950 dark:fill-zinc-50" r={2} />
         </CubicBezier.Curve>
       </CubicBezier.Root>
-      <code className="opacity-50 text-xs">{`cubic-bezier(${bezierValue.map((v) => v.toFixed(2)).join(", ")})`}</code>
+      <code className="opacity-50 text-xs">{`cubic-bezier(${bezierValue
+        .map((v) => v.toFixed(2))
+        .join(", ")})`}</code>
     </section>
   );
 };
