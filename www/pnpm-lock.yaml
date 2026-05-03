@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  cubic-bezier-input: link:../package
+
 importers:
 
   .:
@@ -12,8 +15,8 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18(vite@7.2.7(@types/node@24.10.3)(jiti@2.6.1)(lightningcss@1.30.2))
       cubic-bezier-input:
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: link:../package
+        version: link:../package
       react:
         specifier: ^19.2.0
         version: 19.2.3
@@ -737,9 +740,6 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
-
-  cubic-bezier-input@0.0.3:
-    resolution: {integrity: sha512-glfQtjKGdTgWNoksqQeBj8DscAQ3vG8npHH+1LPkRZ/Fn9Qe9P5A3K3tgWFXFPiXCyH8RaAOM4gjeXRJ7N3O2Q==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -1882,11 +1882,6 @@ snapshots:
       which: 2.0.2
 
   csstype@3.2.3: {}
-
-  cubic-bezier-input@0.0.3:
-    dependencies:
-      react: 19.2.3
-      react-dom: 19.2.3(react@19.2.3)
 
   debug@4.4.3:
     dependencies:

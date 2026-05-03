@@ -21,6 +21,7 @@ www/.next/
 
 # production
 www/build
+www/dist
 
 # misc
 .DS_Store

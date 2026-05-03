@@ -47,6 +47,8 @@ For a better idea of how to use the component, check out the [example usage](htt
 | `onValueChange`  | `(value: [number,number,number,number]) => void` | -                      | The callback when the value changes.      |
 | `onValueCommit`  | `(value: [number,number,number,number]) => void` | -                      | The callback when the value is committed. |
 | `viewBoxPadding` | `number`                                         | `10`                   | The padding of the viewBox.               |
+| `minY`           | `number`                                         | -                      | The minimum value the Y coordinate can reach. |
+| `maxY`           | `number`                                         | -                      | The maximum value the Y coordinate can reach. |
 
 ### Controller
 

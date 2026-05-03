@@ -8,6 +8,8 @@ export type CubicBezierProps = {
   onValueChange?: (value: [number, number, number, number]) => void;
   onValueCommit?: (value: [number, number, number, number]) => void;
   viewBoxPadding?: number;
+  minY?: number;
+  maxY?: number;
   className?: string;
   children?: React.ReactNode;
 };
@@ -57,6 +59,8 @@ export function CubicBezier({
   onValueChange,
   onValueCommit,
   viewBoxPadding = 10,
+  minY,
+  maxY,
   className,
   children,
   ...props
@@ -77,9 +81,11 @@ export function CubicBezier({
 
   const updatePoint = React.useCallback(
     (index: 1 | 2, x: number, y: number) => {
-      // Clamp values to 0-1 range
+      // Clamp x to 0-1 range, y can be any value
       const clampedX = Math.max(0, Math.min(1, x));
-      const clampedY = Math.max(0, Math.min(1, y));
+      let clampedY = y;
+      if (minY !== undefined) clampedY = Math.max(minY, clampedY);
+      if (maxY !== undefined) clampedY = Math.min(maxY, clampedY);
 
       const newValue: [number, number, number, number] = [...value];
       if (index === 1) {
@@ -96,14 +102,16 @@ export function CubicBezier({
 
       onValueChange?.(newValue);
     },
-    [value, onValueChange, controlledValue],
+    [value, onValueChange, controlledValue, minY, maxY],
   );
 
   const commitPoint = React.useCallback(
     (index: 1 | 2, x: number, y: number) => {
-      // Clamp values to 0-1 range
+      // Clamp x to 0-1 range, y can be any value
       const clampedX = Math.max(0, Math.min(1, x));
-      const clampedY = Math.max(0, Math.min(1, y));
+      let clampedY = y;
+      if (minY !== undefined) clampedY = Math.max(minY, clampedY);
+      if (maxY !== undefined) clampedY = Math.min(maxY, clampedY);
 
       const newValue: [number, number, number, number] = [...value];
       if (index === 1) {
@@ -116,7 +124,7 @@ export function CubicBezier({
 
       onValueCommit?.(newValue);
     },
-    [value, onValueCommit],
+    [value, onValueCommit, minY, maxY],
   );
 
   // Calculate viewBox dimensions based on padding
@@ -137,6 +145,7 @@ export function CubicBezier({
           height="100%"
           viewBox={viewBox}
           preserveAspectRatio="none"
+          style={{ overflow: "visible" }}
         >
           {children}
         </svg>
